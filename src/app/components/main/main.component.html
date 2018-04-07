@@ -1,0 +1,35 @@
+<div class="loggedIn">
+  Logged in as {{loggedInAs}}
+</div>
+<div class="book">
+  <div class="heading"><span>Daily</span></div>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Phone</td>
+        <td>Email</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of priorities[0]">
+        <td>{{contact.firstName}} {{contact.lastName}}</td>
+        <td>{{contact.phone}}</td>
+        <td>{{contact.email}}</td>
+        <td>
+          <div class="contacted" (click)="contacted(contact.id)">
+            <span *ngIf="contact.lastContacted">Contacted {{distanceInWordsToNow(contact.lastContacted, {includeSeconds: true} )}} ago.</span>
+            <span *ngIf="!contact.lastContacted">Never contacted.</span>
+
+
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="heading"><span>Weekly</span></div>
+  World
+  <div class="heading"><span>Monthly</span></div>
+</div>

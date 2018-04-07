@@ -1,0 +1,68 @@
+.loggedIn {
+  padding: 1rem;
+  color: white;
+  font-size: 1rem;
+}
+
+$bg: #37474F;
+
+.book {
+  max-width: 50rem;
+  width: 100%;
+  margin: auto;
+  background-color: $bg;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: rgba(10,10,10,0.3) 1px 1px 0.5rem;
+
+  .heading {
+    position: relative;
+    width: 100%;
+    margin: 1rem 0;
+    height: 0.05rem;
+    background-color: #263238;
+    color: #263238;
+    text-align: center;
+    span {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.2rem;
+      display: inline-block;
+      position: relative;
+      min-width: 7rem;
+      background-color: $bg;
+      top: -0.6rem;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-radius: 0.25rem;
+    background-color: #ECEFF1;
+    text-align: center;
+    overflow: hidden;
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    thead {
+      color: #78909C;
+      background-color: #CFD8DC;
+      border-collapse:collapse;
+    }
+
+    tbody {
+      color: #455A64;
+    }
+
+    td {
+      padding: 0.5rem;
+    }
+
+    .contacted {
+      background-color: #9C27B0;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
