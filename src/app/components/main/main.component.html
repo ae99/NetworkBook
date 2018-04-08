@@ -4,30 +4,48 @@
 <div class="book">
   <div class="heading"><span>Daily</span></div>
 
-  <table>
-    <thead>
-      <tr>
-        <td>Name</td>
-        <td>Phone</td>
-        <td>Email</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let contact of priorities[0]">
-        <td>{{contact.firstName}} {{contact.lastName}}</td>
-        <td>{{contact.phone}}</td>
-        <td>{{contact.email}}</td>
-        <td>
-          <div class="contacted" (click)="contacted(contact.id)">
-            <span *ngIf="contact.lastContacted">Contacted {{distanceInWordsToNow(contact.lastContacted, {includeSeconds: true} )}} ago.</span>
-            <span *ngIf="!contact.lastContacted">Never contacted.</span>
-
-
+  <div class="table">
+    <header class="item">
+      <div>Name</div>
+      <div>Phone</div>
+      <div>Email</div>
+      <div>Contact</div>
+    </header>
+    <!-- TODO: Make text background dark!-->
+    <div class="heading"><span>Not Contacted Today</span></div>
+    <div class="tableBody">
+      <div *ngFor="let contact of priorities[0]">
+        <div class="item" *ngIf="differenceInDays(contact.lastContacted, now) >= 1 || contact.lastContacted == undefined">
+          <div>{{contact.firstName}} {{contact.lastName}}</div>
+          <div>{{contact.phone}}</div>
+          <div>{{contact.email}}</div>
+          <div class="contacted-col">
+            <div class="contacted" (click)="contacted(contact.id)">
+              <span *ngIf="contact.lastContacted">Contacted {{distanceInWordsToNow(contact.lastContacted, {includeSeconds: true} )}} ago.</span>
+              <span *ngIf="!contact.lastContacted">Never contacted.</span>
+            </div>
           </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </div>
+      </div>
+    </div>
+    <div class="heading"><span>Contacted Today</span></div>
+    <div class="tableBody">
+      <div *ngFor="let contact of priorities[0]">
+        <div class="item" *ngIf="differenceInDays(contact.lastContacted, now) < 1">
+          <div>{{contact.firstName}} {{contact.lastName}}</div>
+          <div>{{contact.phone}}</div>
+          <div>{{contact.email}}</div>
+          <div class="contacted-col">
+            <div class="contacted" (click)="contacted(contact.id)">
+              <span *ngIf="contact.lastContacted">Contacted {{distanceInWordsToNow(contact.lastContacted, {includeSeconds: true} )}} ago.</span>
+              <span *ngIf="!contact.lastContacted">Never contacted.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
   <div class="heading"><span>Weekly</span></div>
   World

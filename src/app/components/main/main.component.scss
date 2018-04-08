@@ -5,7 +5,7 @@
 }
 
 $bg: #37474F;
-
+$dark: #263238;
 .book {
   max-width: 50rem;
   width: 100%;
@@ -20,8 +20,8 @@ $bg: #37474F;
     width: 100%;
     margin: 1rem 0;
     height: 0.05rem;
-    background-color: #263238;
-    color: #263238;
+    background-color: $dark;
+    color: $dark;
     text-align: center;
     span {
       text-transform: uppercase;
@@ -35,34 +35,72 @@ $bg: #37474F;
     }
   }
 
-  table {
+  .table {
     width: 100%;
     border-radius: 0.25rem;
-    background-color: #ECEFF1;
+    background-color: #263238;
     text-align: center;
     overflow: hidden;
     border: none;
     border-collapse: collapse;
     border-spacing: 0;
+    box-shadow: rgba(10,10,10,0.15) 1px 1px 0.25rem;
 
-    thead {
+    header {
       color: #78909C;
       background-color: #CFD8DC;
       border-collapse:collapse;
     }
 
-    tbody {
-      color: #455A64;
+    .item {
+      display: flex;
+
+      > div {
+        flex: 1;
+        padding: 0.5rem;
+      }
     }
 
-    td {
-      padding: 0.5rem;
+    .tableBody {
+      color: #CFD8DC;
+    }
+
+    .contacted-col {
+      width: 14rem;
     }
 
     .contacted {
+      display: inline-block;
+      padding: 0.5rem;
+      float: right;
+      text-align: center;
+      width: 14rem;
+      border-radius: 0.25rem;
       background-color: #9C27B0;
+      font-size: 0.75rem;
       color: white;
       cursor: pointer;
     }
+
+    .heading {
+      position: relative;
+      width: 100%;
+      margin: 1rem 0;
+      height: 0.05rem;
+      background-color: $bg;
+      color: $bg;
+      text-align: center;
+      span {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.2rem;
+        display: inline-block;
+        position: relative;
+        min-width: 7rem;
+        background-color: $dark;
+        top: -0.6rem;
+      }
+    }
+
   }
 }

@@ -11,7 +11,9 @@ export class ContactService {
 
   constructor(private afs:AngularFirestore) {
     this.contactsCollection = afs.collection<Contact>('contacts');
-    this.contacts = this.contactsCollection.valueChanges();
+    this.contactsCollection.valueChanges().subscribe(value => {
+      this.contacts.next(value);
+    })
 
     this.contacts.subscribe(value => {
       console.log(value);

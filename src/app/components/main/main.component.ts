@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {ContactService} from "../../services/contact.service";
-import { distanceInWordsToNow } from "date-fns"
+import { distanceInWordsToNow, differenceInDays } from "date-fns"
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -11,10 +12,10 @@ import { distanceInWordsToNow } from "date-fns"
 export class MainComponent implements OnInit {
   loggedInAs: string = '';
   contacts = [];
-  // contactDict = {};
   now = new Date();
 
   distanceInWordsToNow = distanceInWordsToNow;
+  differenceInDays = differenceInDays;
 
   priorities = {};
 
@@ -34,15 +35,10 @@ export class MainComponent implements OnInit {
       this.priorities[2] = [];
 
       for (let contact of contacts) {
-        // this.contactDict[contact.id] = contact;
         if (contact.priority != undefined) {
           this.priorities[contact.priority].push(contact);
         }
-
-        // if (contact.lastContacted) {
-        //   console.log(distanceInWords(this.now, contact.lastContacted));
-        // }
-      }
+        }
     })
   }
 
